@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Leaderboard from "./Leaderboard";
 import "../css/MemoryGame.css"; // Import the CSS for styling
 
 const MemoryGame = () => {
@@ -140,33 +141,34 @@ const MemoryGame = () => {
         )}
       </div>
 
-      <div className="timer">Timer: {timer} seconds</div>
-      <div className="click-counter">Clicks: {clicks}</div>
-
-      {/* Game board only becomes visible after the game starts */}
-      <div
-        id="game-container"
-        className="game-container"
-        style={{ visibility: isGameStarted ? "visible" : "hidden" }}
-      >
-        {cards.map((card, index) => (
+      {isGameStarted ? (
+        <>
+          {" "}
+          {/* Game board only becomes visible after the game starts */}
+          <div className="timer">Timer: {timer} seconds</div>
+          <div className="click-counter">Clicks: {clicks}</div>
           <div
-            key={index}
-            className={`memory-card ${card.flipped ? "flipped" : ""}`}
-            onClick={() => flipCard(index)}
+            id="game-container"
+            className="game-container"
+            style={{ visibility: isGameStarted ? "visible" : "hidden" }}
           >
-            <div className="front">?</div>
-            <div className="back">{card.symbol}</div>
+            {cards.map((card, index) => (
+              <div
+                key={index}
+                className={`memory-card ${card.flipped ? "flipped" : ""}`}
+                onClick={() => flipCard(index)}
+              >
+                <div className="front">?</div>
+                <div className="back">{card.symbol}</div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-
-      <div id="leaderboard">
-        <div className="leaderboard-title">Leaderboard</div>
-        {/* <ul className="leaderboard-list">
-          Placeholder for leaderboard entries
-        </ul> */}
-      </div>
+        </>
+      ) : (
+        <div id="leaderboard">
+          <Leaderboard />
+        </div>
+      )}
     </div>
   );
 };

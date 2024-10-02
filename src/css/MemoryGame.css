@@ -124,6 +124,7 @@ select {
 }
 
 /* Leaderboard Styles */
+/* Leaderboard Styles */
 #leaderboard {
   margin: 20px auto;
   max-width: 600px;
@@ -135,19 +136,29 @@ select {
   margin-bottom: 10px;
 }
 
-.leaderboard-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+table {
+  width: 100%;
+  border-collapse: collapse; /* Removes gaps between borders */
 }
 
-.leaderboard-list li {
+thead th {
   padding: 10px;
-  background-color: #edf2f7;
+  background-color: #edf2f7; /* Light background for the header */
+  color: #2d3748; /* Header text color */
+  font-size: 1rem; /* Header font size */
+}
+
+.leaderboard-list tr {
+  border-bottom: 1px solid #ccc; /* Light grey border between rows */
+}
+
+.leaderboard-list td {
+  padding: 10px;
+  background-color: #edf2f7; /* Light grey background for the rows */
   margin: 5px 0;
-  border-radius: 5px;
+  border-radius: 5px; /* Rounded corners for cells */
   font-size: 1rem;
-  color: #2d3748;
+  color: #2d3748; /* Text color */
 }
 
 /* Winner Message */

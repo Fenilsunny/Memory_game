@@ -6,15 +6,24 @@ const Leaderboard = () => {
   ];
 
   return (
-    <div className="leaderboard">
-      <h3>Leaderboard</h3>
-      <ul>
-        {dummyScores.map((player, index) => (
-          <li key={index}>
-            {player.name}: {player.score} seconds
-          </li>
-        ))}
-      </ul>
+    <div id="leaderboard">
+      <h3 className="leaderboard-title">Leaderboard</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th>Score (seconds)</th>
+          </tr>
+        </thead>
+        <tbody className="leaderboard-list">
+          {dummyScores.map((player, index) => (
+            <tr key={index}>
+              <td>{player.name}</td>
+              <td>{player.score}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
