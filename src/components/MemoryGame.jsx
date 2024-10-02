@@ -124,16 +124,20 @@ const MemoryGame = () => {
         <button className="reset" onClick={resetGame}>
           Reset Game
         </button>
-        <div className="level-select">
-          <select
-            value={gameLevel}
-            onChange={(e) => setGameLevel(e.target.value)}
-          >
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-          </select>
-        </div>
+        {!isGameStarted ? (
+          <div className="level-select">
+            <select
+              value={gameLevel}
+              onChange={(e) => setGameLevel(e.target.value)}
+            >
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
 
       <div className="timer">Timer: {timer} seconds</div>
