@@ -1,0 +1,47 @@
+#game-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.memory-card {
+  width: 100%;
+  aspect-ratio: 3/4; /* Maintains a 3:4 aspect ratio */
+  perspective: 1000px; /* Enables 3D effect */
+}
+
+.memory-card .front,
+.memory-card .back {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem; /* Adjust font size for emojis */
+  backface-visibility: hidden; /* Hides the back side when flipped */
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.6s; /* Smooth transition */
+}
+
+.memory-card.flipped .front {
+  transform: rotateY(180deg); /* Rotate front side */
+}
+
+.memory-card.flipped .back {
+  transform: rotateY(0deg); /* Rotate back side to show */
+}
+
+.front {
+  background-color: #63b3ed; /* Background color for the front */
+  color: white;
+}
+
+.back {
+  background-color: #e2e8f0; /* Background color for the back */
+  color: #333; /* Text color for the back */
+  transform: rotateY(180deg); /* Start with back side facing up */
+}
